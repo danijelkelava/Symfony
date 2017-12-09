@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Section{% endblock %}
+
+{% block body %}
+
+<h1> {{heading}} </h1>
+<div class="form-group col-md-6">
+{{ form_start(adminSearchForm, {'attr': {'novalidate': 'novalidate', 'action': path('search_user')}}) }}
+    {{ form_widget(adminSearchForm) }}
+{{ form_end(adminSearchForm) }}
+</div>
+{% endblock %}

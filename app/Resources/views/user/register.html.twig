@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Register!</h1>
+
+                <div class="form-group">
+				{{ form_start(registerForm, {'attr': {'novalidate': 'novalidate'}}) }}
+				    {{ form_row(registerForm.email) }}
+	                {{ form_row(registerForm.plainPassword.first, {'label': 'Password'})
+	                }}
+	                {{ form_row(registerForm.plainPassword.second, {'label': 'Repeat password'}) }}
+				{{ form_end(registerForm) }}
+				</div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

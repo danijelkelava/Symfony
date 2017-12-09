@@ -1,0 +1,14 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Add New Todo{% endblock %}
+
+{% block body %}
+
+<h1> {{heading}} </h1>
+<div class="form-group col-md-6">
+{{ form_start(todoForm, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(todoForm) }}
+{{ form_end(todoForm) }}
+</div>
+{% endblock %}

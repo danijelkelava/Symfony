@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Todo App{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Login!</h1>
+        {# ... you will probably extend your base template, like base.html.twig #}
+
+		{% if error %}
+		    <div class="alert alert-danger">
+		       {{ error.messageKey|trans(error.messageData, 'security') }}
+		    </div>
+		{% endif %}
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                {{ form_row(form._username) }}
+                {{ form_row(form._password) }}
+                {{ form_row(form._login) }}
+                &nbsp;
+                <p>If you don't have your account you can register following link below...</p>
+                <a href="{{ path('user_register') }}">Register</a>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}Edit Todo{% endblock %}
+{% block body %}
+<div class="jumbotron">
+  <h1 class="display-4"> {{heading}} </h1>
+</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                {{ form_start(todoForm, {'attr': {'novalidate': 'novalidate'}}) }}
+                    {{ form_widget(todoForm) }}
+                {{ form_end(todoForm) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

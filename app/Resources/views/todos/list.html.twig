@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block title %}Todo List{% endblock %}
+{% block body %}
+
+<div class="jumbotron">
+  <h1 class="display-4"> {{heading}} </h1>
+  <h2 class="page-header">
+        Welcome
+        {{ app.user ? app.user.getUsername : 'Todo Creators' }}!
+</h2>
+  <p>Add new todo by pressing "Add todo" button.</p>
+  <p class="lead">
+    <a class="btn btn-secondary" href=" {{path('todos_new')}} " >Add todo</a>
+  </p>
+</div>
+
+<div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Name</th>
+                        <th>Time Created</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    {% for todo in todos %}
+                        <tr>
+                            <td>{{ todo.name }}</td>
+                            <td>{{ todo.getDate|date('F j, Y, g:i a') }}</td>
+                            <td>
+                                <a href="{{ path('todo_preview', {'name': todo.name, 'id': todo.id}) }}" class="btn btn-xs btn-light"><span class="fa fa-pencil">PREVIEW</span></a>
+                            </td>
+                            <td>
+                                <a href="{{ path('todo_edit', {'id': todo.id}) }}" class="btn btn-xs btn-success"><span class="fa fa-pencil">EDIT</span></a>
+                            </td>
+                            <td>
+                                <a href="{{ path('todo_delete', {'id': todo.id}) }}" class="btn btn-xs btn-danger"><span class="fa fa-pencil">DELETE</span></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
